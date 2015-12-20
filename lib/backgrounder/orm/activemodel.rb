@@ -22,7 +22,9 @@ module CarrierWave
             send(:"#{serialization_column}_changed?") ||              # after_save support
             previous_changes.has_key?(:"#{serialization_column}") ||  # after_commit support
             send(:"remote_#{column}_url").present? ||                 # Remote upload support
-            send(:"#{column}_cache").present?                         # Form failure support
+            send(:"#{column}_cache").present?      ||                 # Form failure support
+            (defined? CarrierWave::Crop &&
+              send(:"#{serialization_column}_crop_changed?") )
           end
         end
 
