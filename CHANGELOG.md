@@ -1,3 +1,5 @@
+## 0.4.3
+  * fixes for compatibility with rails 5
 
 ## 0.4.2
 
